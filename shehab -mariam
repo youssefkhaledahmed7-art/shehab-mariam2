@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مفاجأة لشهاب ومريم</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+        body, html { margin: 0; padding: 0; font-family: 'Cairo', sans-serif; background-color: #1a0000; color: white; overflow-x: hidden; }
+        
+        /* شاشة القفل */
+        #login-screen { position: fixed; width: 100%; height: 100%; background: radial-gradient(circle, #800000, #1a0000); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 999; transition: opacity 1s ease; }
+        .heart { background-color: #ff0040; height: 180px; position: relative; transform: rotate(-45deg); width: 180px; box-shadow: 0 0 40px #ff0040; display: flex; justify-content: center; align-items: center; }
+        .heart:before, .heart:after { content: ""; background-color: #ff0040; border-radius: 50%; height: 180px; position: absolute; width: 180px; }
+        .heart:before { top: -90px; left: 0; }
+        .heart:after { left: 90px; top: 0; }
+        .login-content { position: relative; z-index: 10; transform: rotate(45deg); text-align: center; }
+        input { padding: 10px; border-radius: 20px; border: none; text-align: center; width: 150px; font-weight: bold; }
+
+        /* المحتوى الرئيسي */
+        #main-content { 
+            display: none; 
+            min-height: 100vh; 
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://i.ibb.co/DH2h7V67/Whats-App-Image-2026-03-08-at-1-25-00-AM.jpg'); 
+            background-size: cover; background-position: center; background-attachment: fixed; text-align: center; padding: 50px 20px; 
+        }
+        .message-box { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 25px; border-radius: 20px; margin: 20px auto; max-width: 600px; border: 1px solid rgba(255,255,255,0.2); font-size: 20px; }
+        .poem { color: #ffd700; font-size: 22px; margin: 20px 0; white-space: pre-line; line-height: 1.6; font-weight: bold; }
+        
+        .timer-container { display: flex; justify-content: center; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
+        .timer-box { background: rgba(255, 0, 64, 0.4); padding: 10px 15px; border-radius: 15px; min-width: 70px; }
+        .timer-num { font-size: 22px; font-weight: bold; display: block; }
+
+        /* ألبوم الصور المصلح */
+        .album-container { max-width: 600px; margin: 40px auto; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .album-img { width: 90%; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); border: 2px solid rgba(255,215,0,0.3); }
+    </style>
+</head>
+<body>
+
+    <audio id="bgMusic" loop src="3YttE6Mz-KQ.mp3"></audio>
+
+    <div id="login-screen">
+        <div class="heart">
+            <div class="login-content">
+                <input type="text" id="passInput" placeholder="9/3/2025">
+                <br><br>
+                <button onclick="checkPass()" style="padding: 10px 30px; cursor: pointer; border-radius: 20px; border: none; background: white; font-weight: bold; color: #ff0040;">دخول</button>
+            </div>
+        </div>
+        <p style="margin-top: 80px; font-size: 22px; color: white;">اكتب تاريخ البداية عشان تفتح القلب</p>
+    </div>
+
+    <div id="main-content">
+        <div class="message-box">
+            رغم أن عمري ما عرفت أختار حاجه عدلة في حياتي ورغم ان الحظ ديما مكنش معايا إلا ان المره دي بس قرر يصلحني وبعتك ليا
+        </div>
+
+        <div class="poem">
+            وانا اعمل ايه ياناس
+            والحلوة ست الناس
+            ونظرة ومدام والكاس
+            فازاي ما جيش ولهان
+        </div>
+
+        <h3 style="color: #ffd700;">الوقت اللي فات وإحنا مع بعض:</h3>
+        <div class="timer-container">
+            <div class="timer-box"><span id="days" class="timer-num">0</span>يوم</div>
+            <div class="timer-box"><span id="hours" class="timer-num">0</span>ساعة</div>
+            <div class="timer-box"><span id="minutes" class="timer-num">0</span>دقيقة</div>
+            <div class="timer-box"><span id="seconds" class="timer-num">0</span>ثانية</div>
+        </div>
+
+        <div class="album-container">
+            <h3 style="color: #ffd700; margin-top: 20px;">ألبوم ذكرياتنا</h3>
+            <img src="https://i.ibb.co/TBkWShFN/Whats-App-Image-2026-03-08-at-1-25-45-AM-2.jpg" class="album-img">
+            <img src="https://i.ibb.co/99mkW0NY/Whats-App-Image-2026-03-08-at-1-25-45-AM-1.jpg" class="album-img">
+            <img src="https://i.ibb.co/N25w79Yc/Whats-App-Image-2026-03-08-at-1-25-45-AM.jpg" class="album-img">
+            <img src="https://i.ibb.co/5hPJQ15Y/Whats-App-Image-2026-03-08-at-1-25-44-AM-4.jpg" class="album-img">
+            <img src="https://i.ibb.co/qMmqWB8K/Whats-App-Image-2026-03-08-at-1-25-44-AM-3.jpg" class="album-img">
+            <img src="https://i.ibb.co/6JXHBXk4/Whats-App-Image-2026-03-08-at-1-25-44-AM-2.jpg" class="album-img">
+            <img src="https://i.ibb.co/tTy9r9wf/Whats-App-Image-2026-03-08-at-1-25-44-AM-1.jpg" class="album-img">
+            <img src="https://i.ibb.co/VYwh5kcJ/Whats-App-Image-2026-03-08-at-1-25-44-AM.jpg" class="album-img">
+            <img src="https://i.ibb.co/21KtSs9G/Whats-App-Image-2026-03-08-at-1-25-42-AM.jpg" class="album-img">
+            <img src="https://i.ibb.co/k6vFj4Nm/Whats-App-Image-2026-03-08-at-1-25-41-AM-1.jpg" class="album-img">
+            <img src="https://i.ibb.co/9mbjfHC3/Whats-App-Image-2026-03-08-at-1-25-41-AM.jpg" class="album-img">
+            <img src="https://i.ibb.co/1YSWW01D/Whats-App-Image-2026-03-08-at-1-25-40-AM-1.jpg" class="album-img">
+            <img src="https://i.ibb.co/TDTxnfDT/Whats-App-Image-2026-03-08-at-1-25-40-AM.jpg" class="album-img">
+            <img src="https://i.ibb.co/DH2h7V67/Whats-App-Image-2026-03-08-at-1-25-00-AM.jpg" class="album-img">
+        </div>
+    </div>
+
+    <script>
+        function checkPass() {
+            const pass = document.getElementById('passInput').value;
+            if (pass === "9/3/2025") {
+                document.getElementById('login-screen').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('login-screen').style.display = 'none';
+                    document.getElementById('main-content').style.display = 'block';
+                    document.getElementById('bgMusic').play();
+                    startTimer();
+                }, 1000);
+            } else { alert("التاريخ غلط، فكر تاني!"); }
+        }
+
+        function startTimer() {
+            const startDate = new Date("March 9, 2025 00:00:00").getTime();
+            setInterval(function() {
+                const now = new Date().getTime();
+                const distance = now - startDate;
+                document.getElementById("days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
+                document.getElementById("hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById("minutes").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById("seconds").innerHTML = Math.floor((distance % (1000 * 60)) / 1000);
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
